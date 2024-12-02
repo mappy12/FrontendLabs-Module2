@@ -1,3 +1,5 @@
+//Вариант 2
+
 const findMinValue = (arr: number[]): number => {
     let minValue = arr[0];
 
@@ -14,6 +16,7 @@ const arr1: number[] = [32,21,24,6,522,124,67,4,523]
 
 const minValue = findMinValue(arr1);
 console.log(minValue);
+
 
 const findCountZero = (arr: number[][]): number => {
     let count = 0;
@@ -38,3 +41,13 @@ const arr2: number[][] = [
 
 const count = findCountZero(arr2);
 console.log(count);
+
+
+const strConcat = (tuple: [string, string, string]): string => {
+    return tuple[0]+tuple[1]+tuple[2];
+}
+
+const tuple: [string, string, string] = ["Hello, ", "How are you? ", "What is your name?"];
+
+const concatStr = strConcat(tuple);
+console.log(concatStr);

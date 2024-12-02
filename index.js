@@ -1,4 +1,5 @@
 "use strict";
+//Вариант 2
 const findMinValue = (arr) => {
     let minValue = arr[0];
     for (let i = 0; i < arr.length; ++i) {
@@ -30,3 +31,9 @@ const arr2 = [
 ];
 const count = findCountZero(arr2);
 console.log(count);
+const strConcat = (tuple) => {
+    return tuple[0] + tuple[1] + tuple[2];
+};
+const tuple = ["Hello, ", "How are you? ", "What is your name?"];
+const concatStr = strConcat(tuple);
+console.log(concatStr);
