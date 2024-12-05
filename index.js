@@ -34,6 +34,6 @@ console.log(count);
 const strConcat = (tuple) => {
     return tuple[0] + tuple[1] + tuple[2];
 };
-const tuple = ["Hello, ", "How are you? ", "What is your name?"];
+const tuple = ["Hello! ", "How are you? ", "What is your name?"];
 const concatStr = strConcat(tuple);
 console.log(concatStr);
