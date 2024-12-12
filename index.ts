@@ -17,5 +17,13 @@ interface Owner {
     print(): void;
 }
 
-
+interface Vehicle {
+    brand: string;
+    model: string;
+    releaseYear: number;
+    VIN: string;
+    regNumber: number;
+    owner: Owner;
+    print(): void;
+}
 
