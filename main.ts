@@ -1,24 +1,32 @@
-import { Transport } from "./Transport.js";
+//1
 
-const me = new Transport.Owner(
-    "Zhestkov",
-    "Andrey",
-    "Alekseevich",
-    "30.03.2006",
-    Transport.DocType.passport,
-    1234,
-    344444
-);
+function getCurrentDate(): void {
+    console.log(Date.now());
+}
 
-const myCar = new Transport.Car(
-    "Toyota",
-    "Camry",
-    2024,
-    "1HGCM82633A123456",
-    123456,
-    me,
-    Transport.BodyType.Sedan,
-    Transport.CarClass.Luxury
-)
+addEventListener('DOMContentLoaded', () => {
+    console.log('Страница загружена');
 
-myCar.print();
+    const intervalId = setInterval(() => {
+        getCurrentDate();
+    }, 5000)
+
+    setTimeout(() => {
+        clearInterval(intervalId);
+
+        console.log('Минута прошла');
+    }, 60000)
+})
+
+//2
+
+function doAddition(n: number) {
+    return function(value: number) {
+        return n + value;
+    }
+}
+
+const addTen = doAddition(10);
+
+console.log(addTen);
+console.log(addTen(20));
