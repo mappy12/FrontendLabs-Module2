@@ -1,4 +1,4 @@
-import { Transport } from "./Transport.js";
+import { Transport } from "./Transport";
 
 const me = new Transport.Owner(
     "Zhestkov",
