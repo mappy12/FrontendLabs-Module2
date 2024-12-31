@@ -1,4 +1,4 @@
-export namespace Transport {
+namespace Transport {
     export enum DocType {
         passport = "Passport",
         IDCard = "ID Card",

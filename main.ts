@@ -1,5 +1,3 @@
-import { Transport } from "./Transport";
-
 const me = new Transport.Owner(
     "Zhestkov",
     "Andrey",

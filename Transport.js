@@ -1,6 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Transport = void 0;
 var Transport;
 (function (Transport) {
     let DocType;
@@ -209,4 +207,4 @@ var Transport;
         }
     }
     Transport.VehicleStorage = VehicleStorage;
-})(Transport || (exports.Transport = Transport = {}));
+})(Transport || (Transport = {}));
