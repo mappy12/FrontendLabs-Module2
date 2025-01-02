@@ -1,0 +1,14 @@
+import { Transport } from "./transport.js";
+var Car = Transport.Car;
+var Owner = Transport.Owner;
+const me = new Owner("Zhestkov", "Andrey", "Alekseevich", "30.03.2006", Transport.DocType.passport, 1234, 344444);
+const alexander = new Owner("Milekhin", "Alexander", "Nikolaevich", "23.11.2005", Transport.DocType.passport, 1234, 335462);
+const car1 = new Car("Toyota", "Camry", 2024, "1HGCM82633A123456", 123456, me, Transport.BodyType.Sedan, Transport.CarClass.Luxury);
+const car2 = new Car("BMW", "X5", 2022, "5UXCR6C53M9F20939", 67890, me, Transport.BodyType.Coupe, Transport.CarClass.Luxury);
+const car3 = new Car("Audi", "A4", 2021, "WAUZB4FF4FN012345", 11223, alexander, Transport.BodyType.Hatchback, Transport.CarClass.Standard);
+const car4 = new Car("Lada", "Vesta", 2015, "XTAGFL110KY313115", 44321, me, Transport.BodyType.Sedan, Transport.CarClass.Economy);
+const car5 = new Car("Mitsubishi", "Outlander", 2021, "JA4AD31G2MZ012345", 543210, alexander, Transport.BodyType.Coupe, Transport.CarClass.Luxury);
+const vehicleStorage = new Transport.VehicleStorage([car1, car2, car3, car4, car5]);
+console.log(vehicleStorage.sortByBrand());
+console.log(vehicleStorage.getVehicleBySurname("milekhin"));
+console.log(car1.getShortInfo());

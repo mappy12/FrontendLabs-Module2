@@ -1,5 +1,4 @@
-"use strict";
-var Transport;
+export var Transport;
 (function (Transport) {
     let DocType;
     (function (DocType) {
@@ -68,6 +67,10 @@ var Transport;
             console.log(`VIN: ${this._VIN}`);
             console.log(`Регистрационный номер: ${this._regNumber}`);
         }
+        getShortInfo() {
+            const fullName = `${this.owner.surname} ${this.owner.name} ${this.owner.patronymic}`;
+            return `ФИО: ${fullName}\nVIN: ${this.VIN}\nРегистрационный номер: ${this.regNumber}`;
+        }
         constructor(brand, model, releaseYear, VIN, regNumber, owner) {
             this._brand = brand;
             this._model = model;
@@ -96,43 +99,16 @@ var Transport;
         }
     }
     Transport.Vehicle = Vehicle;
-    class Car {
+    class Car extends Vehicle {
         constructor(brand, model, releaseYear, VIN, regNumber, owner, bodyType, carClass) {
-            this._brand = brand;
-            this._model = model;
-            this._releaseYear = releaseYear;
-            this._VIN = VIN;
-            this._regNumber = regNumber;
-            this._owner = owner;
+            super(brand, model, releaseYear, VIN, regNumber, owner);
             this._bodyType = bodyType;
             this._carClass = carClass;
         }
         print() {
-            console.log(`Брэнд: ${this._brand}`);
-            console.log(`Модель: ${this._model}`);
-            console.log(`Год выпуска: ${this._releaseYear}`);
-            console.log(`VIN: ${this._VIN}`);
-            console.log(`Регистрационный номер: ${this._regNumber}`);
+            super.print();
             console.log(`Тип кузова: ${this._bodyType}`);
             console.log(`Класс автомобиля: ${this._carClass}`);
-        }
-        get brand() {
-            return this._brand;
-        }
-        get model() {
-            return this._model;
-        }
-        get releaseYear() {
-            return this._releaseYear;
-        }
-        get VIN() {
-            return this._VIN;
-        }
-        get regNumber() {
-            return this._regNumber;
-        }
-        get owner() {
-            return this._owner;
         }
         get bodyType() {
             return this.bodyType;
@@ -142,43 +118,16 @@ var Transport;
         }
     }
     Transport.Car = Car;
-    class Motorbike {
+    class Motorbike extends Vehicle {
         constructor(brand, model, releaseYear, VIN, regNumber, owner, frameType, isSport) {
-            this._brand = brand;
-            this._model = model;
-            this._releaseYear = releaseYear;
-            this._VIN = VIN;
-            this._regNumber = regNumber;
-            this._owner = owner;
+            super(brand, model, releaseYear, VIN, regNumber, owner);
             this._frameType = frameType;
             this._isSport = isSport;
         }
         print() {
-            console.log(`Брэнд: ${this._brand}`);
-            console.log(`Модель: ${this._model}`);
-            console.log(`Год выпуска: ${this._releaseYear}`);
-            console.log(`VIN: ${this._VIN}`);
-            console.log(`Регистрационный номер: ${this._regNumber}`);
+            super.print();
             console.log(`Тип рамы: ${this._frameType}`);
             console.log(`Подходит ли для спорта: ${this._isSport}`);
-        }
-        get brand() {
-            return this._brand;
-        }
-        get model() {
-            return this._model;
-        }
-        get releaseYear() {
-            return this._releaseYear;
-        }
-        get VIN() {
-            return this._VIN;
-        }
-        get regNumber() {
-            return this._regNumber;
-        }
-        get owner() {
-            return this._owner;
         }
         get frameType() {
             return this._frameType;
@@ -189,15 +138,21 @@ var Transport;
     }
     Transport.Motorbike = Motorbike;
     class VehicleStorage {
-        constructor() {
+        constructor(vehicles) {
             this._creationDate = new Date();
-            this._vehicles = [];
+            this._vehicles = vehicles;
         }
         getAllVehicle() {
             return this._vehicles;
         }
         addVehicle(vehicle) {
             this._vehicles.push(vehicle);
+        }
+        sortByBrand() {
+            return this._vehicles.sort((a, b) => a.brand.localeCompare(b.brand));
+        }
+        getVehicleBySurname(surname) {
+            return this.vehicles.filter(vechicle => vechicle.owner.surname.toLocaleUpperCase() === surname.toUpperCase());
         }
         get creationDate() {
             return this._creationDate;
